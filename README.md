@@ -6,10 +6,13 @@ For this project we worked on IBRS18 dataset which consists of 18 T1 weighted MR
 # Preprocessing and Data Handling
 1- **2D**
 The 3D volumetric data, with a shape of (256, 128, 256), was sliced along the axial dimension to create 2D images. Each slice had a shape of (256, 128), representing the spatial resolution in two dimensions. These slices were used as independent samples for training 2D models. 
+
 2- **2.5D**
 The 3D volumetric data, with a shape of (256, 128, 256), was processed to create 2.5D slices by stacking each slice along the axial dimension with its adjacent slices (previous and next) across the channel dimension. This resulted in input tensors with a shape of (3, 256, 128), where the three channels represented the current slice and its neighboring slices. These 2.5D slices were used as input for training 2D convolutional neural networks (CNNs), enabling the model to capture inter-slice dependencies while maintaining the efficiency of 2D processing.
+
 3- **3D Patch Based**
 The 3D volumetric data, with a shape of (256, 128, 256), was processed by extracting 3D patches using random spatial cropping. From each volume, four patches of size (64, 64, 64) were randomly sampled, ensuring diverse coverage of the original image. This patching strategy provided manageable input sizes for the model while preserving the 3D spatial context within each patch. The extracted patches served as input for training 3D convolutional neural networks (CNNs), leveraging the full volumetric information of the data.
+
 # UNets training
 The explanation of training and validation process for each approach is summarized in the following Block Diagrams.
 ![image](https://github.com/user-attachments/assets/080cc7ce-2ee6-4135-9e30-376291cdaad0)
