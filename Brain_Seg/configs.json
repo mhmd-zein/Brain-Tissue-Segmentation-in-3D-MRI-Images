@@ -1,0 +1,7 @@
+{
+  "transforms":{
+    "crop_threshold":40,
+    "contrast_template":"/content/drive/MyDrive/Dataset001_BrainTissues/templates/template.png",
+    "3D_patch_size":[64, 64, 64]
+  }
+}
